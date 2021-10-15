@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="台灣加碼券開獎國民身分證字號末碼查詢" />
+        <meta property="og:description" content="除了好食券在十月二十九日前選擇數位綁定者可免費獲取、免抽籤外，七大加碼券每人每週最多中籤一次，且每種券別僅能中籤一次，因此若當週加碼券的中籤號碼顯示民眾有兩種券中籤，依規定民眾只能領先抽中的加碼券，不會有當週領兩種加碼券的情形。" />
+        <meta property="og:locale" content="zh_TW" />
+        <meta property="og:type" content="website" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <title>台灣加碼券開獎國民身分證字號末碼查詢</title>
+    </head>
+    <body onload="loadUid()">
+        <div class="container-fluid d-flex justify-content-center">
+            <div class="card mt-3 w-75">
+                <div class="card-header text-center">台灣加碼券開獎國民身分證字號末碼查詢</div>
+                <div class="card-body">
+                    <span class="fs-6 text-secondary">只要輸入身分證字號<span class="bg-warning">後三碼</span> ，就可以快速知道自己是否中籤，若是抽中，就會依中籤順序列出國旅券、i 原券、農遊券、藝 FUN 券、動滋券、客庄券或地方創生券。</span>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control h-100" id="uid" rows="5"></textarea>
+                        <label for="uid">請輸入身分證字號（至少輸入末三碼），用 , 分開多筆</label>
+                    </div>                   
+                    <div class="form-floating mb-3 text-center">
+                        <button type="button" class="btn btn-primary" onclick="query()"><i class="fas fa-search"></i> 查詢</button>
+                        <button type="button" class="btn btn btn-warning ms-3" onclick="clean()"><i class="fas fa-trash-alt"></i> 清除暫存</button>
+                    </div>
+                </div>
+                <div id="message" class="card-footer d-none text-muted">
+                    <div class="result-title text-center">查詢結果</div>
+                    <div id="result" class="fw-bold text-center text-success"></div>
+                    <div id="mask" class="d-none text-center">
+                        <button onclick="mask()">碼掉身分證字號（截圖分享用）</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="js/extra-bonus-voucher-query.js" defer></script>
+</html>
