@@ -1,0 +1,7 @@
+#result li {
+    list-style: none;
+}
+
+#result li::before {
+    content: '🀄'
+}

@@ -1,27 +1,30 @@
 let coupons = [{
-    name: '國旅券',
+    name: '【第一週】國旅券',
     codes: ['21', '32', '98', '67', '97', '410']
 }, {
-    name: 'i原券',
+    name: '【第一週】i原券',
     codes: ['64', '85']
 }, {
-    name: '農遊券',
+    name: '【第一週】農遊券',
     codes: ['89', '32', '54', '597', '453', '152']
 }, {
-    name: '藝fun券(數位)',
+    name: '【第一週】藝fun券(數位)',
     codes: ['96', '15', '07', '30', '73', '98', '19', '11']
 }, {
-    name: '藝fun券(紙本)',
+    name: '【第一週】藝fun券(紙本)',
     codes: ['39', '37', '23', '36', '79', '08', '14', '75']
 }, {
-    name: '動滋券',
+    name: '【第一週】動滋券',
     codes: ['97', '13', '19', '55', '71', '93', '381', '734', '644', '453', '985']
 }, {
-    name: '客庄劵2.0',
+    name: '【第一週】客庄劵2.0',
     codes: ['81', '900']
 }, {
-    name: '地方創生券',
+    name: '【第一週】地方創生券',
     codes: ['081', '105', '594', '188', '089', '396', '521', '467', '912', '798', '358', '441', '367', '941', '335']
+}, {
+    name: '【第二週】國旅券',
+    codes: ['87', '04', '40', '29', '71']
 }]
 
 let rs = []
@@ -32,7 +35,7 @@ let search = (ids, coupons) => {
         coupons.map((coupon) => {
             coupon.codes.map((code) => {
                 if (id.slice(-code.length) === code) {
-                    winning.push(`${coupon.name}[${code}]`);
+                    winning.push(`${coupon.name} [${code}]`)
                 }
             })
         })
@@ -60,14 +63,23 @@ function render(_rs) {
         result.appendChild(h5);
 
         let span = document.createElement('span');
-        let winning = r.winning.length > 0 ? `中：${r.winning.join(', ')}` : '都沒中';
-        span.appendChild(document.createTextNode(winning));
-        result.appendChild(span);
+        if (r.winning.length > 0) {
+            let ul = document.createElement('ul')
+            r.winning.map((w) => {
+                let li = document.createElement('li')
+                li.appendChild(document.createTextNode(w))
+                ul.appendChild(li)
+            })
+            result.appendChild(ul)
+        } else {
+            span.appendChild(document.createTextNode('都沒中'))
+            result.appendChild(span)
+        }
     })
 }
 
 function query() {
-    document.getElementById('message').classList.remove("d-none"); 
+    document.getElementById('message').classList.remove("d-none");
     uid.style.display = null;
 
     let uids = uid.value.split(',').map((_uid) => _uid.trim());
