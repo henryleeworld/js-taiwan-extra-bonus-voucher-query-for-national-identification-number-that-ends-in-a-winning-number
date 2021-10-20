@@ -25,9 +25,21 @@ let coupons = [{
 }, {
     name: '【第二週】國旅券',
     codes: ['87', '04', '40', '29', '71']
-}]
+}, {
+    name: '【第二週】i原券',
+    codes: ['12', '59']
+}, {
+    name: '【第二週】農遊券',
+    codes: ['50', '13']
+}, {
+    name: '【第二週】藝fun券(數位)',
+    codes: ['78', '00', '39', '22', '61', '23', '15']
+}, {
+    name: '【第二週】藝fun券(紙本)',
+    codes: ['37', '76', '31', '06', '51', '65', '81']
+}];
 
-let rs = []
+let rs = [];
 
 let search = (ids, coupons) => {
     let _rs = ids.map((id) => {
@@ -35,7 +47,7 @@ let search = (ids, coupons) => {
         coupons.map((coupon) => {
             coupon.codes.map((code) => {
                 if (id.slice(-code.length) === code) {
-                    winning.push(`${coupon.name} [${code}]`)
+                    winning.push(`${coupon.name} [${code}]`);
                 }
             })
         })
@@ -47,7 +59,7 @@ let search = (ids, coupons) => {
     return _rs;
 }
 
-let uid = null
+let uid = null;
 
 function loadUid() {
     uid = document.getElementById('uid');
@@ -58,22 +70,22 @@ function render(_rs) {
     let result = document.getElementById('result');
     result.innerHTML = '';
     _rs.map((r) => {
-        let h5 = document.createElement('h5')
+        let h5 = document.createElement('h5');
         h5.appendChild(document.createTextNode(r.id));
         result.appendChild(h5);
 
         let span = document.createElement('span');
         if (r.winning.length > 0) {
-            let ul = document.createElement('ul')
+            let ul = document.createElement('ul');
             r.winning.map((w) => {
-                let li = document.createElement('li')
-                li.appendChild(document.createTextNode(w))
-                ul.appendChild(li)
+                let li = document.createElement('li');
+                li.appendChild(document.createTextNode(w));
+                ul.appendChild(li);
             })
-            result.appendChild(ul)
+            result.appendChild(ul);
         } else {
-            span.appendChild(document.createTextNode('都沒中'))
-            result.appendChild(span)
+            span.appendChild(document.createTextNode('都沒中'));
+            result.appendChild(span);
         }
     })
 }
