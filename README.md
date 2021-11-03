@@ -11,5 +11,5 @@ $ git clone
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/wpfflqd.gif)
+![](https://i.imgur.com/7WxHllz.gif)
 > 每種券別只能中籤一次，第一週國旅券有一組中籤號碼五八，若第三週國旅券又抽出五八，因民眾第一週已中籤國旅券，第三週不再重複中籤
